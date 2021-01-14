@@ -65,3 +65,5 @@ db.user.findAll({
     })
   })
 });
+
+// https://github.com/009Kings/squelize-intro
