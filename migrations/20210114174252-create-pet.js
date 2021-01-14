@@ -19,6 +19,9 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
+      age: {
+        type: Sequelize.TEXT
+      },
       userId: {
         type: Sequelize.INTEGER
       },
