@@ -31,13 +31,37 @@ const db = require('./models');
 // });
 
 // Load Associated items into `getPet`
-db.user.findByPk(2)
-.then ( user => {
-  // Load pets for this user
-  user.getPets()
-  .then( pets => {
-    console.log(`🚀 pets:`, pets)
-  }).catch(error => {
-    console.log(`❌3: error`, error);
-  });
+// db.user.findByPk(2)
+// .then ( user => {
+//   // Load pets for this user
+//   user.getPets()
+//   .then( pets => {
+//     console.log(`🚀 pets:`, pets)
+//   }).catch(error => {
+//     console.log(`❌3: error`, error);
+//   });
+// });
+
+// Eager Loading
+// db.users.findAll({
+//   // Where clause
+//   where: {
+//     name: 'Steven Peters'
+//   },
+//   include: [
+//     // Models that we want to include
+//     db.pet
+//   ]
+// });
+
+db.user.findAll({
+  include: [db.pet]
+}).then(users => {
+  users.map( user => {
+    console.log(`🦄 Users: ${user.name}'s pets`);
+    
+    user.pets.map( pet => {
+      console.log(`😹 Pet:`, pet)
+    })
+  })
 });
