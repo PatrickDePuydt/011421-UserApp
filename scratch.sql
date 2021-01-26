@@ -1,8 +1,6 @@
+sequelize model:create --name pet --attributes species:string,description:text,userId:integer
 
-sequelize model:create --name pet --attributes name:string,species:string,description:text,userId:integer
-```sql
-  pgcli
-  \connect user_databse
-  \dt
-  \d pets
-```
+sequelize model:create --name toy --attributes type:string,color:string
+
+sequelize model:create --name petToys --attributes petId:integer,toyId:integer
+
